@@ -1,0 +1,32 @@
+<% if notice %>
+<div class="alert alert-info" role="alert">
+	<p id="notice"><%= notice %>!</p>
+</div>
+<% end %>
+
+	<!-- Cart partial -->
+		<div id="cart">
+			<%= render @cart %>
+		</div> 
+
+<h3>Your Book Catalog</h3> 
+	
+<% @products.each do |product| %>
+<!--<div class="well">-->
+<table class="table">	
+  <td>			  
+  	<%= image_tag(product.image_url) %>
+  </td>
+  	<td><%= product.title %></td>
+  	<td><%=sanitize product.description %></td>
+  <td>
+  	<p class="text-right"
+  	<div class="price_line">
+  		<span class="price"><%= number_to_currency(product.price,:locale => :usa) %></span>
+  		<%= button_to 'Add to Cart', line_items_path(:product_id => product), :remote => true, :class => 'btn btn-default btn-sm pull-right' %>
+  	</div>
+  	</p>
+  </td>
+</table>
+<!--</div>-->
+<% end %>

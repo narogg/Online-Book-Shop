@@ -1,0 +1,27 @@
+<div class="alert alert-success" role="alert">
+	<p id="notice"><%= notice %></p>
+</div>
+<!-- Not used for now, using _cart-->
+<h3>Your Pragmatic Cart</h3>
+<table class="table table-striped table-bordered ">
+<!-- comment out
+ <% for item in @cart.line_items %>
+	<tr >
+		<td><%= item.quantity %>&times;</td>
+		<td><%= item.product.title %></td>
+		<td class="item_price"><%= number_to_currency(item.total_price) %></td>
+	</tr>
+ <% end %>
+     comment out end-->
+ <%= render(@cart.line_items) %>
+	<tr class="info">
+		<td colspan="2"><strong>Total:</strong></td>
+		<td class="total_cell"><strong><%= number_to_currency(@cart.total_price) %></strong></td>
+	</tr>
+</table>
+
+<%= button_to 'Empty cart', @cart, :method => :delete,
+:confirm => 'Are you sure?', :class => 'btn btn-default' %>
+</br>
+<%#  nazada %>
+<%= link_to 'Back', store_path %>
