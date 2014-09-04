@@ -1,8 +1,11 @@
 
 <div id="product_list">
   <h3>Listing products
-  <%= link_to 'New product', new_product_path,:class => 'btn btn-default ' %> </h3>
-
+  <%= link_to 'New product', new_product_path,:class => 'btn btn-default ' %> 
+  <div class="pull-right"><small><%=link_to  'View Orders', controller: 'orders',:class => 'text pull-right'  %> </small></div>
+  </h3>
+  
+  
   <table class="table">
   <% @products.each do |product| %> 
     
