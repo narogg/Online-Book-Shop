@@ -41,8 +41,12 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 	@order.add_line_items_from_cart(current_cart)
-
-    respond_to do |format|
+	logger.error "I am now in order_controller.rb and current_cart.total_price is #{current_cart.total_price}"
+	
+	#I'm adding order_total from cart.total_price method
+	@order.order_total = current_cart.total_price
+    
+	respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
 		session[:cart_id] = nil

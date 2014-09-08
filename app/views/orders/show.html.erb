@@ -24,6 +24,10 @@
   <strong>Placed:</strong>
   <%= @order.created_at.strftime("%d.%m.%Y. %H:%M:%S") %>
 </p>
+<p>
+  <strong>Updated:</strong>
+  <%= @order.updated_at.strftime("%d.%m.%Y. %H:%M:%S") %>
+</p>
 
 <p>
 <br>
@@ -36,7 +40,7 @@
 	<th>Total price</th>
 	</tr>
   	<tr>
-	
+			<%# For each order which has many line_items and also has_many :products, :through => :line_items we are displaying order details%>
   			<% @order.line_items.each do |line_item| %>	
 				<tr><td><%= line_item.quantity %> X </td>
 					<td><%= line_item.product.title %></td>
@@ -46,7 +50,7 @@
   			<% end %>  	
 	
 	</tr>		
-	<tr><td colspan="4"><strong>Order total:</strong></td></tr>
+	<tr><td colspan="3" ><strong>Order total:</strong></td><td><strong><%=number_to_currency(@order.order_total)%></strong></td></tr>
   </table>  
   
 </p>
