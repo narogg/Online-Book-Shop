@@ -1,0 +1,36 @@
+<% if notice %>
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <p id="notice"><%= notice %></p>
+</div>
+<% end %>
+
+<h2>Listing users</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr class="danger">
+      <th>Name</th>      
+      <th>Created</th>
+      <th></th>
+      <th></th>
+	  <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+		<td><%= user.created_at.strftime("%d.%m.%Y. %H:%M:%S")  %></td>        
+        <td><%= link_to 'Show', user, :class => 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', user, :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New User', new_user_path, :class => 'btn btn-default' %>

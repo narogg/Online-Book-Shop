@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     #@orders = Order.all
-	@orders = Order.paginate(:page=>params[:page], :order=>'created_at desc' ,:per_page => 2)
+	@orders = Order.paginate(:page=>params[:page], :order=>'created_at desc' ,:per_page => 5)
 	#Post.paginate(:page => params[:page], :per_page => 30)
 	
 	respond_to do |format|
 	format.html # index.html.erb
-	 format.xml { render :xml => @orders }
+	format.xml { render :xml => @orders }
 	end
 	
   end
@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
 		return
 	end
     @order = Order.new
+	# Gives me the ability to display cart in checkout page
+	@cart = current_cart
   end
 
   # GET /orders/1/edit
@@ -44,7 +46,10 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
 		session[:cart_id] = nil
-		format.html { redirect_to(store_url, :notice =>'Thank you for your order.' ) }
+		#mail sending bit
+		#Notifier.order_received(@order).deliver
+		#
+		format.html { redirect_to(store_url, :notice =>'Thank you for your order' ) }
 		format.xml { render :xml => @order, :status => :created,:location => @order }
         format.json { render action: 'show', status: :created, location: @order }
       else

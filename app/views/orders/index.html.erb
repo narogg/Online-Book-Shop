@@ -1,12 +1,13 @@
-<h1>Listing orders</h1>
-
-<table class="table table-bordered table-striped">
+<h2>Listing orders</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
   <thead>
     <tr class="success">
       <th>Name</th>
       <th>Address</th>
       <th>Email</th>
       <th>Pay type</th>
+	  <th>Placed</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,14 +21,15 @@
         <td><%= order.address %></td>
         <td><%= order.email %></td>
         <td><%= order.pay_type %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= order.created_at.strftime("%d.%m.%Y. %H:%M:%S") %></td>
+        <td><%= link_to 'Show', order, :class => 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', order, :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%#= link_to 'New Order', new_order_path %>

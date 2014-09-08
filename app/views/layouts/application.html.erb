@@ -31,12 +31,15 @@ body { padding-top: 70px; }
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><%=link_to 'Catalog', controller: 'store' %></li>
-          <li><a href="#"   >News</a></li>
+          <!--
+		  <li><a href="#"   >News</a></li>
           <li><a href="#"   >Questions</a></li>
           <li><a href="#" >Contact</a></li>
 		  <li><a href="#"   >Cart</a></li>
+		  -->
 		  <li class="divider"></li>
 		  <li><%=link_to' Admin', controller: 'products' %> </li>
+		  <li><%=link_to' Users', controller: 'users' %> </li>
 		  <li class="divider"></li>
 		  <li><a href="#" >Log Out</a></li>
 		  

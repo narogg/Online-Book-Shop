@@ -20,5 +20,10 @@
   <%= @order.pay_type %>
 </p>
 
+<p>
+  <strong>Placed:</strong>
+  <%= @order.created_at.strftime("%d.%m.%Y. %H:%M:%S") %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

@@ -12,8 +12,10 @@
 <% end %>
 
 	<!-- Cart partial -->
-		<div id="cart">
+		<div id="cart" class="row">
+		<div class="span4">
 			<%= render @cart %>
+		</div> 
 		</div> 
 
 <h3>Your Book Catalog</h3> 
@@ -22,7 +24,7 @@
 <!--<div class="well">-->
 <table class="table">	
   <td>			  
-  	<%= image_tag(product.image_url) %>
+  	<%= image_tag(product.image_url,:class=>"img-rounded" )%>
   </td>
   	<td> <%= product.title %> </td>
   	<td><%=sanitize product.description %></td>
@@ -37,3 +39,5 @@
 </table>
 <!--</div>-->
 <% end %>
+
+<p><%= will_paginate @products %></p>

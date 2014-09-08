@@ -1,11 +1,23 @@
 <div class="depot_form">
 	<fieldset>
 		<legend>Please Enter Your Details</legend>
-		<%= render 'form' %>
+
+		<div class="row pull-right">
+		<table >
+			<tr class="pull-right"><strong>Your Cart</strong></tr>
+					<%= render(@cart.line_items) %>
+					<tr class="total_line">
+					<td colspan="2"><strong>Total</strong></td>
+					<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+					</tr>
+		</table>
+		</div>
+		
+		<%= render 'form' %>		
+		<%#= render @cart %>
 	</fieldset>
 </div>
 
-<!--<h1>New order</h1>-->
-<%#= render 'form' %>
-
 <%= link_to 'Back', store_path %>
+
+
