@@ -25,5 +25,31 @@
   <%= @order.created_at.strftime("%d.%m.%Y. %H:%M:%S") %>
 </p>
 
+<p>
+<br>
+<strong>Order ID: <%= @order.id %></strong>
+  <table class ="table table-bordered">
+  	<tr class="success">
+	<th>Quantity</th>
+	<th>Title</th>
+	<th>Price</th>
+	<th>Total price</th>
+	</tr>
+  	<tr>
+	
+  			<% @order.line_items.each do |line_item| %>	
+				<tr><td><%= line_item.quantity %> X </td>
+					<td><%= line_item.product.title %></td>
+					<td>  <%= number_to_currency(line_item.product.price) %> 
+					<td><%=number_to_currency(line_item.total_price)%></td>
+				</tr>								
+  			<% end %>  	
+	
+	</tr>		
+	<tr><td colspan="4"><strong>Order total:</strong></td></tr>
+  </table>  
+  
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

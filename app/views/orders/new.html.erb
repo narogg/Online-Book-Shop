@@ -1,18 +1,19 @@
 <div class="depot_form">
 	<fieldset>
 		<legend>Please Enter Your Details</legend>
-
+        
+		<% if ! @order.errors.any? %>
 		<div class="row pull-right">
-		<table >
-			<tr class="pull-right"><strong>Your Cart</strong></tr>
+		<table class="table">
+			<tr><strong>Your Cart</strong></tr>
 					<%= render(@cart.line_items) %>
-					<tr class="total_line">
+					<tr>
 					<td colspan="2"><strong>Total</strong></td>
-					<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+					<td><strong><%= number_to_currency(@cart.total_price) %></strong></td>
 					</tr>
 		</table>
 		</div>
-		
+		<% end %>
 		<%= render 'form' %>		
 		<%#= render @cart %>
 	</fieldset>
