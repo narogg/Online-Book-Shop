@@ -18,12 +18,12 @@
 
   
   <div>
-	<%= f.label :password, 'Password' %>: <br>
-	<%= f.password_field :password, :size => 40 %>
+	<%= f.label :hashed_password, 'Password' %>: <br>
+	<%= f.text_field :hashed_password, :size => 40 %>
   </div>
   <div>
-	<%= f.label :password_confirmation, 'Confirm' %>:<br>
-	<%= f.password_field :password_confirmation, :size => 40 %>
+	<%#= f.label :password_confirmation, 'Confirm' %>:<br>
+	<%#= f.password_field :password_confirmation, :size => 40 %>
   </div>
   
   <div class="actions">
