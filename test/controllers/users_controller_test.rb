@@ -1,14 +1,8 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  setup do    
-	@input_attributes = {
-		:name => "sam" ,
-		:password => "private" ,
-		:password_confirmation => "private"
-	}
-	
-	@user = users(:one)
+  setup do
+    @user = users(:one)
   end
 
   test "should get index" do
@@ -24,12 +18,10 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      #post :create, user: { hashed_password: @user.hashed_password, name: @user.name, salt: @user.salt }
-	  post :create, :user => @input_attributes
+      post :create, user: { email: @user.email, password_hash: @user.password_hash, password_salt: @user.password_salt }
     end
 
-    #assert_redirected_to user_path(assigns(:user))
-	assert_redirected_to users_path
+    assert_redirected_to user_path(assigns(:user))
   end
 
   test "should show user" do
@@ -43,10 +35,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    #patch :update, id: @user, user: { hashed_password: @user.hashed_password, name: @user.name, salt: @user.salt }
-    #assert_redirected_to user_path(assigns(:user))
-	put :update, :id => @user.to_param, :user => @input_attributes
-	assert_redirected_to users_path
+    patch :update, id: @user, user: { email: @user.email, password_hash: @user.password_hash, password_salt: @user.password_salt }
+    assert_redirected_to user_path(assigns(:user))
   end
 
   test "should destroy user" do

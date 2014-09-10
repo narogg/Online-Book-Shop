@@ -11,23 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+<!--<h3>Sign Up</h3>-->
+<%=form_for User.new do |f| %>
+<%=f.label :email %><br>
+<%=f.text_field :email %><br><br>
+<%=f.label :password %><br>
+<%=f.password_field :password %><br><br>
+<%=f.label :password_confirmation %><br>
+<%=f.password_field :password_confirmation %><br><br>
+<%=f.submit "Sign Up", class: "btn btn-large btn-danger" %><br><br>
+<%end%>
 
-  
-  <div>
-	<%= f.label :hashed_password, 'Password' %>: <br>
-	<%= f.text_field :hashed_password, :size => 40 %>
-  </div>
-  <div>
-	<%#= f.label :password_confirmation, 'Confirm' %>:<br>
-	<%#= f.password_field :password_confirmation, :size => 40 %>
-  </div>
-  
-  <div class="actions">
-  <br>
-    <%= f.submit "Submit", class: "btn btn-large btn-danger" %>
-  </div>
+
 <% end %>

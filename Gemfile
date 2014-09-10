@@ -44,4 +44,8 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Pagination
 gem 'will_paginate', '~> 3.0'
+
+# Pwd encrypting
+gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
