@@ -4,7 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+	# current_user is defined application_controller.rb so we dont call the db each time we need it
+    if current_user
+      @products = Product.all
+	
+	else
+	flash[:notice] = "You have to log in to access Admin"
+	redirect_to log_in_path
+	end
   end
 
   # GET /products/1

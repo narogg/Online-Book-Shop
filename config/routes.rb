@@ -9,6 +9,11 @@ Depot::Application.routes.draw do
 
   get "store/index"
   resources :products
+  
+  # Added by me
+  get "/log-in" => "sessions#new"
+  post "/log-in" => "sessions#create", as: :log_in
+  get "/log-out" => "sessions#destroy", as: :log_out
 
   
 

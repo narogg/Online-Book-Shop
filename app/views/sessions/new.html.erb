@@ -1,0 +1,23 @@
+<% if alert %>
+  <div class="alert alert-warning" role="alert">
+    <p id="alert"><%= alert %>!</p>
+  </div>
+
+<% end %>
+
+<h3>Log In To Access Admin Dashboard</h3><br>
+<%=form_tag log_in_path do%>
+  <%=label_tag :email %><br>
+  <%=text_field_tag :email %><br><br>
+  <%=label_tag :password %><br>
+  <%=password_field_tag :password %><br><br>
+  <%=submit_tag "Log in", :class=> 'btn btn-info' %><br><br>
+<%end%>
+
+<div class="span1">
+				<div class="alert alert-info">
+					<p>If you're new, sign up!</p><br>					
+					<%= link_to 'Sign Up!', new_user_path, :class=>'btn btn-info' %>					
+				</div>
+			</div>
+
