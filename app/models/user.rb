@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
   attr_accessor :password
-  validates_presence_of :password
+  validates_presence_of :password, :email
   validates_confirmation_of :password
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   before_save :encrypt_password
   
   def encrypt_password

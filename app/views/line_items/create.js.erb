@@ -7,7 +7,8 @@ $('#cart').html("<%= escape_javascript(render(@cart)) %>");
 //$('#current_item').css({'background-color':'#B3D1EF'}).
 //  animate({'background-color':'#114411'}, 5000);
   
-$('#current_item').append('<mark></mark>').show('slow');
+//$('#current_item').append('<mark></mark>').show('slow');
+//$('#current_item').hide('fast').show('slow');
 
 if($(window).scrollTop() !=0 ){
 	$("html, body").animate({ scrollTop: 0 }, 'slow');
