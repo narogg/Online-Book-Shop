@@ -8,8 +8,10 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-12 text-right">
-                                    <div class="huge"><strong>Your Cart</strong></div>
-                                    <div><%= render(cart.line_items) %></div>
+                                    <div class="huge"><strong>Your Cart</strong> </div>
+                                    <div><%= render(cart.line_items) %></div><br>
+									<%= button_to 'Empty cart', @cart, :method => :delete,
+								:confirm => 'Are you sure?', :class => 'btn btn-default btn-sm' %>
                                 </div>
                             </div>
                         </div>
@@ -17,9 +19,7 @@
                             <div class="panel-footer">
                                 <span class="pull-left"><strong>Total: <%= number_to_currency(cart.total_price) %><strong>
 								</br></br>
-								<%= button_to 'Empty cart', @cart, :method => :delete,
-								:confirm => 'Are you sure?', :class => 'btn btn-default btn-sm' %>
-								</br>								
+																
 								<%= button_to "Checkout" , new_order_url, :method=>:get,:class => 'btn btn-info btn-sm' %>
 								</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
