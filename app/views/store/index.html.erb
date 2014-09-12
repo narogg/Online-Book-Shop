@@ -24,7 +24,7 @@
 
 <div class="pull-right">
 <%= form_tag(store_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Books by Title" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Books by Title", :class=>'text' %>
   <%= submit_tag "Search", :title => nil, class: "btn btn-large btn-default" %>
 <% end %>
 </div><br><br>

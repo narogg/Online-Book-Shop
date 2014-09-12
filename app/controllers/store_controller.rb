@@ -14,7 +14,10 @@ class StoreController < ApplicationController
   # Index method with a search function 
   def index
   @cart = current_cart
-  flash[:notice] = nil
+  # Temporary hack!
+  if (flash[:notice]!="You've been logged out successfully" && flash[:notice]!="Thank you for your order") 
+	flash[:notice] = nil
+  end
   flash[:alert]  = nil
 	
 	# check if this is search and if search string is not empty
