@@ -1,15 +1,17 @@
 <% if notice %>
-<!--
-<div class="alert alert-info" role="alert">
-	<p id="notice"><%= notice %>!</p>
-</div>
--->
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
   <p id="notice"><%= notice %>!</p>
 </div>
-
 <% end %>
+
+<% if alert %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <p id="alert"><%= alert %>!</p>
+</div>
+<% end %>
+
 
 	<!-- Cart partial -->
 		<div id="cart" class="row">
@@ -19,6 +21,18 @@
 		</div> 
 
 <h3>Your Book Catalog</h3> 
+
+<div class="pull-right">
+<%= form_tag(store_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Books by Title" %>
+  <%= submit_tag "Search", :title => nil, class: "btn btn-large btn-default" %>
+<% end %>
+</div><br><br>
+
+
+
+
+
 	
 <% @products.each do |product| %>
 <!--<div class="well">-->

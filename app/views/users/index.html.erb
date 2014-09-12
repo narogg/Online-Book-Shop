@@ -5,7 +5,7 @@
     <tr class="danger">
       <th>Email</th>
       <th>Password hash</th>
-      <th>Password salt</th>
+      <th>Signed up @</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.password_hash %></td>
-        <td><%= user.password_salt %></td>
+        <td><%= user.created_at.strftime("%d.%m.%Y. %H:%M:%S") %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
