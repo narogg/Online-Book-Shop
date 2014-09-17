@@ -1,25 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web-application is developed while reading hte Agile Web Develpment With Rails. It will be published on Heroku PaaS.
 
-Things you may want to cover:
+Technology stack:
 
-* Ruby version
+* Ruby On Rails 4
 
-* System dependencies
+* HTML5
 
-* Configuration
+* JQuery
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Ajax
 
 * ...
 
