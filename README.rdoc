@@ -1,6 +1,6 @@
 == README
 
-This web-application is developed while reading hte Agile Web Develpment With Rails. It will be published on Heroku PaaS.
+This web-application is developed while reading the Agile Web Develpment With Rails. It will be published on Heroku PaaS.
 
 Technology stack:
 
@@ -15,5 +15,4 @@ Technology stack:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
