@@ -14,5 +14,3 @@ Technology stack:
 
 * ...
 
-
-
