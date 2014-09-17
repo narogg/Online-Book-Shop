@@ -14,3 +14,14 @@ Technology stack:
 
 * ...
 
+Consists of:
+
+* Users
+
+* Admins
+
+* Products
+
+* Orders
+
+* Ajax Cart
